@@ -1,0 +1,9 @@
+ATtiny2313
+PB2		-	TRIGGER Output 1
+PB3		-	TRIGGER Output 2
+PB4		-	TRIGGER Output 3
+PB5		-	TRIGGER Output 4
+PB6		-	TRIGGER Output 5
+PB7		-	TRIGGER Output 6
+PD0		-	RXD		(MIDI-IN)
+
