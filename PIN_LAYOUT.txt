@@ -7,3 +7,6 @@ PB6		-	TRIGGER Output 5
 PB7		-	TRIGGER Output 6
 PD0		-	RXD		(MIDI-IN)
 
+fusebitsettings:
+-U lfuse:w:0xe4:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m 
+... that is 8MHz internal RC Osc (without internal clock division)
