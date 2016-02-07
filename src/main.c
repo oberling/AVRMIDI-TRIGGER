@@ -20,8 +20,11 @@
 #pragma message "TRIGGER_COUTNER_INIT not defined - defaulting to 20"
 #define TRIGGER_COUNTER_INIT	20
 #endif
+#ifndef MIDI_NOTE_OFFSET
+#pragma message "MIDI_NOTE_OFFSET not defined - defaulting to 60"
 // 60 is the middle C
 #define MIDI_NOTE_OFFSET	60
+#endif
 
 midibuffer_t midi_buffer;
 uint8_t midi_channel = 4;

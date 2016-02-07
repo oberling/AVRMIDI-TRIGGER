@@ -109,7 +109,10 @@ endif
 CDEFS += -DF_CPU=$(F_OSC)
 # RINGBUFFER_SIZE must be something 2^n
 CDEFS += -DRINGBUFFER_SIZE=32
+# this defines the length of the trigger signal (times 256µs gives the actual trigger length (-(0-256)µs because we only have one timer for all triggers))
 CDEFS += -DTRIGGER_COUNTER_INIT=6
+# make middle C the lowest Note to trigger something
+CDEFS += -DMIDI_NOTE_OFFSET=60
 
 # Place -I options here
 CINCS = -I$(INCDIR)
