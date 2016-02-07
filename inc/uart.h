@@ -12,8 +12,7 @@
 #define F_CPU	16000000UL
 #endif
 
-//#define UBRR_VAL ((F_CPU+BAUD*8)/(BAUD*16)-1)   // clever rounding
-#define UBRR_VAL 15
+#define UBRR_VAL ((F_CPU+BAUD*8)/(BAUD*16)-1)   // clever rounding
 #define BAUD_REAL (F_CPU/(16*(UBRR_VAL+1)))     // Real baudrate
 #define BAUD_ERROR ((BAUD_REAL*1000)/BAUD) // Error in promile, 1000 = no Error.
  
