@@ -38,8 +38,9 @@ void init_io(void);
 void init_variables(void);
 
 bool midi_handler_function(midimessage_t* m) {
-	if(m->byte[0] == NOTE_ON(midi_channel) && m->byte[2] != 0) {
-		if(m->byte[1]>=MIDI_NOTE_OFFSET && m->byte[1]<(MIDI_NOTE_OFFSET+NUM_TRIGGER_OUTPUTS)) {
+	// only return true if something of interest happened
+	if(m->byte[0] == NOTE_ON(midi_channel) && m->byte[2] != 0) { // Velocity must not be 0
+		if(m->byte[1]>=MIDI_NOTE_OFFSET && m->byte[1]<(MIDI_NOTE_OFFSET+NUM_TRIGGER_OUTPUTS)) { // if in range of triggering notes
 			trigger_counter[m->byte[1]-MIDI_NOTE_OFFSET] = TRIGGER_COUNTER_INIT;
 			return true;
 		}
@@ -48,6 +49,7 @@ bool midi_handler_function(midimessage_t* m) {
 }
 
 void update_trigger_output(void) {
+	// only change output status - no decrement of counters here!
 	uint8_t i=0;
 	for(;i<NUM_TRIGGER_OUTPUTS;i++) {
 		if(trigger_counter[i]) {
@@ -71,6 +73,7 @@ void init_variables(void) {
 }
 
 ISR(TIMER0_OVF_vect) {
+	// decrement counters here - trigger update of outputs if trigger is over
 	uint8_t i=0;
 	for(;i<NUM_TRIGGER_OUTPUTS;i++) {
 		if(trigger_counter[i]) {
