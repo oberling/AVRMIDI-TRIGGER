@@ -113,6 +113,8 @@ CDEFS += -DRINGBUFFER_SIZE=32
 CDEFS += -DTRIGGER_COUNTER_INIT=6
 # make middle C the lowest Note to trigger something
 CDEFS += -DMIDI_NOTE_OFFSET=60
+# MIDI Channel is off by one - here we define Channel 5 as our Channel
+CDEFS += -DMIDI_CHANNEL=4
 
 # Place -I options here
 CINCS = -I$(INCDIR)

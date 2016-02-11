@@ -27,11 +27,16 @@
 // 60 is the middle C
 #define MIDI_NOTE_OFFSET	60
 #endif
+#ifndef MIDI_CHANNEL
+#pragma message "MIDI_CHANNEL not defined - defaulting to 5"
+// MIDI_CHANNEL is off by 1 (begins at 0 but shown as 1)
+#define MIDI_CHANNEL 4
+#endif
 
 #define TRIGGER_FLAME_PRESCALER	4
 
 midibuffer_t midi_buffer;
-uint8_t midi_channel = 4;
+uint8_t midi_channel = MIDI_CHANNEL;
 uint8_t trigger_flame_counter = TRIGGER_FLAME_PRESCALER;
 
 trigger_output_t trigger_output[NUM_TRIGGER_OUTPUTS];
