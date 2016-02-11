@@ -18,20 +18,14 @@ bool midibuffer_get(midibuffer_t* b, midimessage_t* m) {
 		if(!ringbuffer_peek(&(b->buffer), &byte)) {
 			return false;
 		}
-		switch(byte) {
-			case SYSEX_BEGIN:
+		// the following saves us 4 Byte Flash Space compared to a switch-case statement
+		if(byte == SYSEX_BEGIN) {
 				midibuffer_issysex = true;
-				break;
-			case SYSEX_END:
+		} else if(byte == SYSEX_END) {
 				midibuffer_issysex = false;
 				ringbuffer_get(&(b->buffer), &byte);
-				break;
-			case CLOCK_SIGNAL:
-			case CLOCK_START:
-			case CLOCK_CONTINUE:
-			case CLOCK_STOP:
+		} else if (byte == CLOCK_SIGNAL || byte == CLOCK_START || byte == CLOCK_CONTINUE || byte == CLOCK_STOP) {
 				return ringbuffer_get(&(b->buffer), m->byte);
-				break;
 		}
 		if(!midibuffer_issysex)
 			break;
