@@ -113,7 +113,6 @@ void init_trigger_outputs(void) {
 
 void init_io(void) {
 	TRIGGER_DDR |= (1<<TRIGGER1)|(1<<TRIGGER2)|(1<<TRIGGER3)|(1<<TRIGGER4)|(1<<TRIGGER5)|(1<<TRIGGER6);
-	DDRD |= (1<<PD5);
 	TCCR0B = (1<<CS01); // at 8000000Hz/8 = 1000000Hz -> 1000000Hz/256 = 3906.25Hz -> 1/3906.25Hz = 256µs
 	TIMSK |= (1<<TOIE0);
 	uart_init();
