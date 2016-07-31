@@ -156,7 +156,8 @@ int main(int argc, char** argv) {
 	init_io();
 	sei();
 	while(true) {
-		if(midibuffer_tick(&midi_buffer)) {
+		// handle midi data prefered - always handle all midi messages first
+		while(midibuffer_tick(&midi_buffer)) {
 			must_update_trigger_output = true;
 		}
 		if(must_update_trigger_output) {
