@@ -1,10 +1,12 @@
 ATtiny2313
-PB2		-	TRIGGER Output 1
-PB3		-	TRIGGER Output 2
-PB4		-	TRIGGER Output 3
-PB5		-	TRIGGER Output 4
-PB6		-	TRIGGER Output 5
-PB7		-	TRIGGER Output 6
+PB0		-	TRIGGER Output 1
+PB1		-	TRIGGER Output 2
+PB2		-	TRIGGER Output 3
+PB3		-	TRIGGER Output 4
+PB4		-	TRIGGER Output 5
+PB5		-	TRIGGER Output 6
+PB6		-	TRIGGER Output 7
+PB6		-	TRIGGER Output 8
 PD0		-	RXD		(MIDI-IN)
 
 fusebitsettings:

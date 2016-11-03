@@ -10,14 +10,16 @@
 
 #define TRIGGER_PORT	PORTB
 #define TRIGGER_DDR		DDRB
-#define TRIGGER1		PB2
-#define TRIGGER2		PB3
-#define TRIGGER3		PB4
-#define TRIGGER4		PB5
-#define TRIGGER5		PB6
-#define TRIGGER6		PB7
-#define TRIGGER_PIN_OFFSET	2
-#define NUM_TRIGGER_OUTPUTS		6
+#define TRIGGER1		PB0
+#define TRIGGER2		PB1
+#define TRIGGER3		PB2
+#define TRIGGER4		PB3
+#define TRIGGER5		PB4
+#define TRIGGER6		PB5
+#define TRIGGER7		PB6
+#define TRIGGER8		PB7
+#define TRIGGER_PIN_OFFSET	0
+#define NUM_TRIGGER_OUTPUTS		8
 #ifndef TRIGGER_COUNTER_INIT
 #pragma message "TRIGGER_COUTNER_INIT not defined - defaulting to 20"
 #define TRIGGER_COUNTER_INIT	20
@@ -112,7 +114,7 @@ void init_trigger_outputs(void) {
 }
 
 void init_io(void) {
-	TRIGGER_DDR |= (1<<TRIGGER1)|(1<<TRIGGER2)|(1<<TRIGGER3)|(1<<TRIGGER4)|(1<<TRIGGER5)|(1<<TRIGGER6);
+	TRIGGER_DDR |= (1<<TRIGGER1)|(1<<TRIGGER2)|(1<<TRIGGER3)|(1<<TRIGGER4)|(1<<TRIGGER5)|(1<<TRIGGER6)|(1<<TRIGGER7)|(1<<TRIGGER8);
 	TCCR0B = (1<<CS01); // at 8000000Hz/8 = 1000000Hz -> 1000000Hz/256 = 3906.25Hz -> 1/3906.25Hz = 256µs
 	TIMSK |= (1<<TOIE0);
 	uart_init();
