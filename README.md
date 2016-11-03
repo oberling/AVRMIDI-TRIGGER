@@ -8,6 +8,8 @@ I was able to reuse a lot of sourcecode from my AVR MIDI-CV converter here... wh
 
 It also supports multitrigger/flames via velocity: there are 16 pre-defined flame pattern and velocity of 127 gives you a simple trigger.
 
+If you want to see the MIDI to Trigger converter in action (also hearing the flame pattern): [video of the SDSV clone i built](https://www.youtube.com/watch?v=ALU4drFba9A)
+
 Teststatus
 ==========
 
