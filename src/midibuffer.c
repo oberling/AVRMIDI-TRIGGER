@@ -1,7 +1,7 @@
 #include "midibuffer.h"
 
 bool midibuffer_issysex=false;
-midimessage_t current_message = {0};
+midimessage_t current_message = {{0}};
 uint8_t current_message_next_fillbyte = 0;
 
 bool midibuffer_init(midibuffer_t* b, midimessage_handler h) {
@@ -163,7 +163,7 @@ bool midibuffer_empty(midibuffer_t* b) {
 }
 
 bool midibuffer_tick(midibuffer_t* b) {
-	midimessage_t m;
+	midimessage_t m = {0};
 	// if there is a message to dispatch
 	if(midibuffer_get(b, &m)) {
 		// dispatch it
