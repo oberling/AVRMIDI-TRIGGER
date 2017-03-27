@@ -10,6 +10,11 @@ It also supports multitrigger/flames via velocity: there are 16 pre-defined flam
 
 If you want to see the MIDI to Trigger converter in action (also hearing the flame pattern): [video of the SDSV clone i built](https://www.youtube.com/watch?v=ALU4drFba9A)
 
+Schematic
+=========
+
+![schematic picture](https://github.com/oberling/AVRMIDI-TRIGGER/blob/master/pcb/midi_trigger_schem.png)
+
 Teststatus
 ==========
 
